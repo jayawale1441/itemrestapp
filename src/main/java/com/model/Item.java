@@ -2,6 +2,13 @@ package com.model;
 
 import javax.persistence.*;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 public class Item {
 	@Id
@@ -10,7 +17,7 @@ public class Item {
 	private String itemName;
 	private float price;
 	private int quantity;
-	
+	/*
 	public Item()
 	{}
 
@@ -45,7 +52,7 @@ public class Item {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-
+*/
 	@Override
 	public String toString() {
 		return "[{itemId=" + itemId + ", itemName=" + itemName + ", price=" + price + ", quantity=" + quantity

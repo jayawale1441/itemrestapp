@@ -3,6 +3,7 @@ package com.itemrestapp.itemrestapp;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.Arrays;
 import java.util.List;
 
 import org.junit.jupiter.api.Assertions;
@@ -11,7 +12,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.client.RestTemplate;
@@ -98,11 +102,11 @@ class ItemTest {
 		URI uri=new URI(url);
 		
 		ResponseEntity<List> res=template.getForEntity(uri, List.class);
-		//Assertions.assertEquals(HttpStatus.OK, res.getStatusCode());
+		Assertions.assertEquals(HttpStatus.OK, res.getStatusCode());
 		System.out.println(res.getBody());
 		System.out.println(i.toString());
 		Assertions.assertEquals(200,res.getStatusCodeValue());
-		Assertions.assertEquals(true,res.getBody().equals(i.toString()));
+		//Assertions.assertEquals(true,res.getBody().equals(i.toString()));
 		
 	}
 	
